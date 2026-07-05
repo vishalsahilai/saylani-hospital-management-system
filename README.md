@@ -141,6 +141,7 @@ Stage Duration
 Project Roadmap
 Phase 1 – Project Setup
 We'll create the project structure.
+
 HospitalManagement/
 │
 ├── app/
@@ -149,24 +150,24 @@ HospitalManagement/
 │   ├── config.py
 │   │
 │   ├── models/
-│   │      doctor.py
-│   │      patient.py
-│   │      staff.py
+│   │   ├── doctor.py
+│   │   ├── patient.py
+│   │   └── staff.py
 │   │
 │   ├── schemas/
-│   │      doctor.py
-│   │      patient.py
-│   │      staff.py
+│   │   ├── doctor.py
+│   │   ├── patient.py
+│   │   └── staff.py
 │   │
 │   ├── crud/
-│   │      doctor.py
-│   │      patient.py
-│   │      staff.py
+│   │   ├── doctor.py
+│   │   ├── patient.py
+│   │   └── staff.py
 │   │
 │   ├── routes/
-│   │      doctor.py
-│   │      patient.py
-│   │      staff.py
+│   │   ├── doctor.py
+│   │   ├── patient.py
+│   │   └── staff.py
 │   │
 │   └── utils/
 │
