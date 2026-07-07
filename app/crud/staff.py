@@ -12,3 +12,5 @@ def create_staff(db: Session, data: StaffCreate) -> Staff:
 def get_staff(db: Session, staff_id: int) -> Staff | None:
     return db.query(Staff).filter(Staff.id == staff_id).first()
 
+def get_all_staff(db: Session) -> list[Staff]:
+    return db.query(Staff).all()
