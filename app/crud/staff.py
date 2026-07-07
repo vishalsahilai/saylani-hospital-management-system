@@ -14,3 +14,13 @@ def get_staff(db: Session, staff_id: int) -> Staff | None:
 
 def get_all_staff(db: Session) -> list[Staff]:
     return db.query(Staff).all()
+
+def update_staff(db: Session, staff_id: int, data: StaffUpdate) -> Staff | None:
+    staff = get_staff(db, staff_id)
+    if not staff:
+        return None
+    for key, value in data.model_dump(exclude_unset=True).items():
+        setattr(staff, key, value)
+    db.commit()
+    db.refresh(staff)
+    return staff
