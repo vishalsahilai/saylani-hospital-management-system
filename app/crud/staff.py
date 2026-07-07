@@ -8,3 +8,7 @@ def create_staff(db: Session, data: StaffCreate) -> Staff:
     db.commit()
     db.refresh(staff)
     return staff
+
+def get_staff(db: Session, staff_id: int) -> Staff | None:
+    return db.query(Staff).filter(Staff.id == staff_id).first()
+
