@@ -12,3 +12,10 @@ class StaffUpdate(BaseModel):
     role: Optional[str] = None
     shift: Optional[str] = None
     salary: Optional[float] = None
+
+class StaffResponse(BaseModel):
+    id: int
+    name: str
+    role: str
+    shift: str
+    salary: float
