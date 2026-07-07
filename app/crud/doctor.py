@@ -8,3 +8,6 @@ def create_doctor(db: Session, data: DoctorCreate) -> Doctor:
     db.commit()
     db.refresh(doctor)
     return doctor
+
+def get_doctor(db: Session, doctor_id: int) -> Doctor | None:
+    return db.query(Doctor).filter(Doctor.id == doctor_id).first()
