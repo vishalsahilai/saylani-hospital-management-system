@@ -24,3 +24,11 @@ def update_staff(db: Session, staff_id: int, data: StaffUpdate) -> Staff | None:
     db.commit()
     db.refresh(staff)
     return staff
+
+def delete_staff(db: Session, staff_id: int) -> bool:
+    staff = get_staff(db, staff_id)
+    if not staff:
+        return False
+    db.delete(staff)
+    db.commit()
+    return True
