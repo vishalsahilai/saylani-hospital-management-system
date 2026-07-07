@@ -24,3 +24,11 @@ def update_patient(db: Session, patient_id: int, data: PatientUpdate) -> Patient
     db.commit()
     db.refresh(patient)
     return patient
+
+def delete_patient(db: Session, patient_id: int) -> bool:
+    patient = get_patient(db, patient_id)
+    if not patient:
+        return False
+    db.delete(patient)
+    db.commit()
+    return True
