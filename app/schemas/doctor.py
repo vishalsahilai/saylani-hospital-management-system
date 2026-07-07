@@ -7,3 +7,18 @@ class DoctorCreate(BaseModel):
     email: EmailStr
     phone: Optional[str] = None
     salary: Optional[float] = 0.0
+
+class DoctorUpdate(BaseModel):
+    name: Optional[str] = None
+    specialization: Optional[str] = None
+    email: Optional[EmailStr] = None
+    phone: Optional[str] = None
+    salary: Optional[float] = None
+
+class DoctorResponse(BaseModel):
+    id: int
+    name: str
+    specialization: str
+    email: str
+    phone: Optional[str] = None
+    salary: float
