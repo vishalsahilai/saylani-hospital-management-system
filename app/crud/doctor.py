@@ -14,3 +14,13 @@ def get_doctor(db: Session, doctor_id: int) -> Doctor | None:
 
 def get_all_doctors(db: Session) -> list[Doctor]:
     return db.query(Doctor).all()
+
+def update_doctor(db: Session, doctor_id: int, data: DoctorUpdate) -> Doctor | None:
+    doctor = get_doctor(db, doctor_id)
+    if not doctor:
+        return None
+    for key, value in data.model_dump(exclude_unset=True).items():
+        setattr(doctor, key, value)
+    db.commit()
+    db.refresh(doctor)
+    return doctor
