@@ -11,3 +11,6 @@ def create_doctor(db: Session, data: DoctorCreate) -> Doctor:
 
 def get_doctor(db: Session, doctor_id: int) -> Doctor | None:
     return db.query(Doctor).filter(Doctor.id == doctor_id).first()
+
+def get_all_doctors(db: Session) -> list[Doctor]:
+    return db.query(Doctor).all()
