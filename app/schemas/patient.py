@@ -18,3 +18,12 @@ class PatientUpdate(BaseModel):
     doctor_id: Optional[int] = None
     admission_date: Optional[date] = None
 
+class PatientResponse(BaseModel):
+    id: int
+    name: str
+    age: int
+    gender: str
+    disease: str
+    doctor_id: int
+    admission_date: date
+
