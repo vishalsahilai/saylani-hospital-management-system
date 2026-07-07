@@ -6,3 +6,9 @@ class StaffCreate(BaseModel):
     role: str
     shift: str
     salary: Optional[float] = 0.0
+
+class StaffUpdate(BaseModel):
+    name: Optional[str] = None
+    role: Optional[str] = None
+    shift: Optional[str] = None
+    salary: Optional[float] = None
