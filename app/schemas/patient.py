@@ -9,3 +9,12 @@ class PatientCreate(BaseModel):
     disease: str
     doctor_id: int
     admission_date: date
+
+class PatientUpdate(BaseModel):
+    name: Optional[str] = None
+    age: Optional[int] = None
+    gender: Optional[str] = None
+    disease: Optional[str] = None
+    doctor_id: Optional[int] = None
+    admission_date: Optional[date] = None
+
