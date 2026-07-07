@@ -11,3 +11,6 @@ def create_patient(db: Session, data: PatientCreate) -> Patient:
 
 def get_patient(db: Session, patient_id: int) -> Patient | None:
     return db.query(Patient).filter(Patient.id == patient_id).first()
+
+def get_all_patients(db: Session) -> list[Patient]:
+    return db.query(Patient).all()
