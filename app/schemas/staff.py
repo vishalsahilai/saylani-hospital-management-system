@@ -19,3 +19,6 @@ class StaffResponse(BaseModel):
     role: str
     shift: str
     salary: float
+
+    class Config:
+        from_attributes = True
