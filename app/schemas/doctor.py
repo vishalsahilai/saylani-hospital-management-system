@@ -22,3 +22,6 @@ class DoctorResponse(BaseModel):
     email: str
     phone: Optional[str] = None
     salary: float
+
+    class Config:
+        from_attributes = True
