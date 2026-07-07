@@ -27,3 +27,5 @@ class PatientResponse(BaseModel):
     doctor_id: int
     admission_date: date
 
+    class Config:
+        from_attributes = True
