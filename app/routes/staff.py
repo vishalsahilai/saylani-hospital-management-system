@@ -21,3 +21,10 @@ def fetch_staff(staff_id: int, db: Session = Depends(get_db)):
     if not staff:
         raise HTTPException(status_code=404, detail="Staff not found")
     return staff
+
+@router.put("/{staff_id}", response_model=StaffResponse)
+def edit_staff(staff_id: int, data: StaffUpdate, db: Session = Depends(get_db)):
+    staff = update_staff(db, staff_id, data)
+    if not staff:
+        raise HTTPException(status_code=404, detail="Staff not found")
+    return staff
