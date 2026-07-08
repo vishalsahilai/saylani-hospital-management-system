@@ -14,3 +14,10 @@ def add_patient(data: PatientCreate, db: Session = Depends(get_db)):
 @router.get("/", response_model=list[PatientResponse])
 def list_patients(db: Session = Depends(get_db)):
     return get_all_patients(db)
+
+@router.get("/{patient_id}", response_model=PatientResponse)
+def fetch_patient(patient_id: int, db: Session = Depends(get_db)):
+    patient = get_patient(db, patient_id)
+    if not patient:
+        raise HTTPException(status_code=404, detail="Patient not found")
+    return patient
