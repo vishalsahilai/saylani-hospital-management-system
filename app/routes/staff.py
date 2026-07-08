@@ -10,3 +10,7 @@ router = APIRouter(prefix="/staff", tags=["Staff"])
 @router.post("/", response_model=StaffResponse)
 def add_staff(data: StaffCreate, db: Session = Depends(get_db)):
     return create_staff(db, data)
+
+@router.get("/", response_model=list[StaffResponse])
+def list_staff(db: Session = Depends(get_db)):
+    return get_all_staff(db)
