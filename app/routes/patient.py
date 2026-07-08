@@ -21,3 +21,10 @@ def fetch_patient(patient_id: int, db: Session = Depends(get_db)):
     if not patient:
         raise HTTPException(status_code=404, detail="Patient not found")
     return patient
+
+@router.put("/{patient_id}", response_model=PatientResponse)
+def edit_patient(patient_id: int, data: PatientUpdate, db: Session = Depends(get_db)):
+    patient = update_patient(db, patient_id, data)
+    if not patient:
+        raise HTTPException(status_code=404, detail="Patient not found")
+    return patient
