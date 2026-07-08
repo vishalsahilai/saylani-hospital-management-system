@@ -10,3 +10,8 @@ app = FastAPI(
 app.include_router(doctor_router)
 app.include_router(patient_router)
 app.include_router(staff_router)
+
+
+@app.get("/")
+def root():
+    return {"message": "Hospital Management System API is running"}
