@@ -14,3 +14,10 @@ def add_doctor(data: DoctorCreate, db: Session = Depends(get_db)):
 @router.get("/", response_model=list[DoctorResponse])
 def list_doctors(db: Session = Depends(get_db)):
     return get_all_doctors(db)
+
+@router.get("/{doctor_id}", response_model=DoctorResponse)
+def fetch_doctor(doctor_id: int, db: Session = Depends(get_db)):
+    doctor = get_doctor(db, doctor_id)
+    if not doctor:
+        raise HTTPException(status_code=404, detail="Doctor not found")
+    return doctor
