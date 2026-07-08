@@ -11,9 +11,11 @@ router = APIRouter(prefix="/doctor", tags=["Doctor"])
 def add_doctor(data: DoctorCreate, db: Session = Depends(get_db)):
     return create_doctor(db, data)
 
+
 @router.get("/", response_model=list[DoctorResponse])
 def list_doctors(db: Session = Depends(get_db)):
     return get_all_doctors(db)
+
 
 @router.get("/{doctor_id}", response_model=DoctorResponse)
 def fetch_doctor(doctor_id: int, db: Session = Depends(get_db)):
@@ -22,9 +24,18 @@ def fetch_doctor(doctor_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Doctor not found")
     return doctor
 
+
 @router.put("/{doctor_id}", response_model=DoctorResponse)
 def edit_doctor(doctor_id: int, data: DoctorUpdate, db: Session = Depends(get_db)):
     doctor = update_doctor(db, doctor_id, data)
     if not doctor:
         raise HTTPException(status_code=404, detail="Doctor not found")
     return doctor
+
+
+@router.delete("/{doctor_id}")
+def remove_doctor(doctor_id: int, db: Session = Depends(get_db)):
+    success = delete_doctor(db, doctor_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Doctor not found")
+    return {"message": "Doctor deleted successfully"}
