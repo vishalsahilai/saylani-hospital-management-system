@@ -4,5 +4,7 @@ sqlalchemy
 alembic
 pydantic
 pydantic-settings
-psycopg2-binary
+pymysql
 python-dotenv
+mako
+email-validator
