@@ -21,3 +21,10 @@ def fetch_doctor(doctor_id: int, db: Session = Depends(get_db)):
     if not doctor:
         raise HTTPException(status_code=404, detail="Doctor not found")
     return doctor
+
+@router.put("/{doctor_id}", response_model=DoctorResponse)
+def edit_doctor(doctor_id: int, data: DoctorUpdate, db: Session = Depends(get_db)):
+    doctor = update_doctor(db, doctor_id, data)
+    if not doctor:
+        raise HTTPException(status_code=404, detail="Doctor not found")
+    return doctor
