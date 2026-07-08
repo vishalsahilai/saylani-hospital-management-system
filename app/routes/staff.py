@@ -14,3 +14,10 @@ def add_staff(data: StaffCreate, db: Session = Depends(get_db)):
 @router.get("/", response_model=list[StaffResponse])
 def list_staff(db: Session = Depends(get_db)):
     return get_all_staff(db)
+
+@router.get("/{staff_id}", response_model=StaffResponse)
+def fetch_staff(staff_id: int, db: Session = Depends(get_db)):
+    staff = get_staff(db, staff_id)
+    if not staff:
+        raise HTTPException(status_code=404, detail="Staff not found")
+    return staff
