@@ -28,3 +28,10 @@ def edit_patient(patient_id: int, data: PatientUpdate, db: Session = Depends(get
     if not patient:
         raise HTTPException(status_code=404, detail="Patient not found")
     return patient
+
+@router.delete("/{patient_id}")
+def remove_patient(patient_id: int, db: Session = Depends(get_db)):
+    success = delete_patient(db, patient_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Patient not found")
+    return {"message": "Patient deleted successfully"}
