@@ -1,3 +1,5 @@
+make this project with python, fastapi & MySQL
+
 1. Customers Dataset
 	Age 
 	Gender 
