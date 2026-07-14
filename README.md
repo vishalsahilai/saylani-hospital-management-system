@@ -351,3 +351,163 @@ Features We'll Add
 	Unit testing with pytest 
 	Docker and Docker Compose 
 	CI/CD pipeline with GitHub Actions 
+
+
+Phase 11 — Authentication Setup
+Install authentication libraries
+Configure JWT
+Configure password hashing
+Configure OAuth2PasswordBearer
+Create authentication utilities
+Phase 12 — User Management
+
+Create User model
+
+User table
+Roles
+Active status
+Email
+Username
+Password Hash
+
+Relationships
+
+Doctor → User
+Staff → User
+Phase 13 — Registration & Login
+
+Implement
+
+Register
+Login
+Password Hashing
+Password Verification
+JWT Token Generation
+
+API Endpoints
+
+POST /auth/register
+
+POST /auth/login
+Phase 14 — Refresh Token Authentication
+
+Instead of only Access Tokens
+
+Implement
+
+Access Token
+Refresh Token
+Refresh Endpoint
+Logout
+
+Endpoints
+
+POST /auth/refresh
+
+POST /auth/logout
+Phase 15 — Role-Based Authorization (RBAC)
+
+Roles
+
+Admin
+Doctor
+Staff
+Patient
+
+Protect APIs using role-based dependencies.
+
+Phase 16 — Current User & Protected Routes
+
+Implement
+
+Get Current User
+Verify Token
+Verify Active User
+Secure CRUD APIs
+Phase 17 — Password Management
+
+Features
+
+Change Password
+Forgot Password
+Reset Password
+Password Validation
+Phase 18 — Search, Filtering & Pagination
+
+Add to all modules
+
+Search
+Filter
+Sort
+Pagination
+Phase 19 — File Upload
+
+Patient Reports
+
+Images
+PDFs
+Medical Files
+Phase 20 — Appointment Management
+
+Features
+
+Book Appointment
+Update Appointment
+Cancel Appointment
+Appointment Status
+Doctor Availability
+Phase 21 — Prescription Module
+
+Create
+
+Prescription
+Medicine
+Dosage
+Instructions
+
+Relationships
+
+Doctor → Patient → Prescription
+
+Phase 22 — Logging & Middleware
+
+Implement
+
+Request Logging
+Error Logging
+Execution Time
+Security Headers
+CORS Configuration
+Phase 23 — Global Exception Handling
+
+Create custom handlers for
+
+400
+401
+403
+404
+422
+500
+
+Return consistent API responses.
+
+Phase 24 — Testing
+
+Using pytest
+
+Test
+
+Authentication
+CRUD
+Protected Routes
+Role Permissions
+Database Operations
+Phase 25 — Docker & Deployment
+
+Create
+
+Dockerfile
+Docker Compose
+Environment Variables
+Production Configuration
+GitHub Actions CI/CD (optional enhancement)
