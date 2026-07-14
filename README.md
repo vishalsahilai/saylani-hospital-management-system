@@ -144,39 +144,86 @@ Project Roadmap
 Phase 1 – Project Setup
 We'll create the project structure.
 
+
 HospitalManagement/
 │
 ├── app/
+│   │
 │   ├── main.py
-│   ├── database.py
 │   ├── config.py
+│   ├── database.py
+│
+│   ├── core/
+│   │   ├── security.py          # Password hashing, JWT utilities
+│   │   ├── auth.py              # Authentication helpers
+│   │   ├── dependencies.py      # Current user dependencies
+│   │   ├── permissions.py       # Role-based authorization
+│   │   └── constants.py
 │   │
 │   ├── models/
+│   │   ├── user.py
 │   │   ├── doctor.py
 │   │   ├── patient.py
-│   │   └── staff.py
+│   │   ├── staff.py
+│   │   ├── appointment.py
+│   │   └── refresh_token.py
 │   │
 │   ├── schemas/
+│   │   ├── auth.py
+│   │   ├── token.py
+│   │   ├── user.py
 │   │   ├── doctor.py
 │   │   ├── patient.py
-│   │   └── staff.py
+│   │   ├── staff.py
+│   │   └── appointment.py
 │   │
 │   ├── crud/
+│   │   ├── auth.py
+│   │   ├── user.py
 │   │   ├── doctor.py
 │   │   ├── patient.py
-│   │   └── staff.py
+│   │   ├── staff.py
+│   │   └── appointment.py
 │   │
 │   ├── routes/
+│   │   ├── auth.py
+│   │   ├── user.py
 │   │   ├── doctor.py
 │   │   ├── patient.py
-│   │   └── staff.py
+│   │   ├── staff.py
+│   │   └── appointment.py
 │   │
-│   └── utils/
+│   ├── services/
+│   │   ├── auth_service.py
+│   │   ├── doctor_service.py
+│   │   ├── patient_service.py
+│   │   ├── staff_service.py
+│   │   └── appointment_service.py
+│   │
+│   ├── middleware/
+│   │   ├── logging.py
+│   │   ├── request_timer.py
+│   │   └── security_headers.py
+│   │
+│   ├── utils/
+│   │   ├── logger.py
+│   │   ├── validators.py
+│   │   └── helpers.py
+│   │
+│   ├── uploads/
+│   │
+│   ├── tests/
+│   │
+│   └── __init__.py
 │
 ├── alembic/
 │
 ├── requirements.txt
-│
+├── Dockerfile
+├── docker-compose.yml
+├── .env
+├── .env.example
+├── .gitignore
 └── README.md
 
 Phase 2
