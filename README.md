@@ -1,514 +1,256 @@
-make this project with python, fastapi & MySQL
+# 🏥 Hospital Management System
 
-1. Customers Dataset
-	Age 
-	Gender 
-business questions.
-Suggested Analysis 
-Customer Segmentation
-Group by
-	Age Category 
-	Gender 
-Find
-	Total Customers 
-	Average Rating 
-	Average Purchase 
-	Engagement
-Geography Analysis
-Find
-	Customers per country 
-	Average review score 
-	Average engagement 
-Example
-Pakistan
-USA
-UK
-Business insight
-UK customers have lowest satisfaction.
-2. Product Dataset
-Marketing wants
-Which products sell interest.
-Do
-Product popularity
-Count reviews
-Count engagements
-Count purchases
-Bar chart
-Top 10 Products
-Product Category Analysis
-Average Rating
-Average Engagement
-Average Views
-Average Clicks
-Business insight
-Electronics receive many views but very few purchases.
-That indicates conversion issues.
-Product-wise Rating
-Average rating per product
-Lowest Rated Products
-Highest Rated Products
-Category-wise Rating	Category-wise Rating
-Example	Example
-Category	Avg Rating
-Electronics	3.2
-Accessories	4.6
-	Category	Avg Rating
-Electronics	3.2
-Accessories	4.6
+A full-stack Hospital Management System built with **FastAPI**, **MySQL**, and **Vanilla JS** frontend. It supports JWT-based authentication, role-based access control, and auto-logout after 2 days.
 
-4. Engagement Dataset
-This answers Marketing Manager.
-Very important.
+---
 
-Total Views
-Total Clicks
-Like Count
-Engagement Rate
-Engagement Rate=(Clicks + Likes)/ Views
+## 🚀 Tech Stack
 
+### Backend
+- **FastAPI** — Modern Python web framework
+- **SQLAlchemy** — ORM for database management
+- **Alembic** — Database migrations
+- **MySQL** — Relational database
+- **PyMySQL** — MySQL connector for Python
+- **Pydantic** — Data validation
+- **JWT (python-jose)** — Token-based authentication
+- **Passlib (bcrypt)** — Password hashing
 
-Campaign Performance
-If campaign ID exists
-Calculate
-CTR
-Click Through Rate
-CTR=Clicks/Views
+### Frontend
+- **HTML5**
+- **CSS3**
+- **Vanilla JavaScript**
+- **Fetch API** — Connect frontend to backend
 
+---
 
-Product Engagement
-Find
-Most Viewed Products
-Most Clicked Products
-Least Engaged Products
-Conversion by Date
-Daily conversion
-Monthly conversion
-Trend
-
-Combine All Datasets
-Now comes the executive analysis.
-Merge
-Customer
-↓
-Review
-↓
-Engagement
-↓
-Journey
-Now answer questions like
-Does engagement affect ratings?
-Does age affect engagement?
-Does rating affect purchase?
-Do certain categories have higher conversion?
-Statistical Analysis
-Correlation Heatmap
-Variables
-Views
-Clicks
-Likes
-Rating
-Duration
-Purchase
-Business insight
-Views alone do not increase purchases.
-Clicks strongly correlate with purchases.
-Executive Dashboard
-Instead of many small graphs,
-create dashboard sections.
-
-Customer Dashboard
-Age
-Gender
-Country
-Rating
-
-Marketing Dashboard
-Views
-Clicks
-CTR
-Top Campaigns
-Top Products
-
-Customer Experience Dashboard
-Sentiment
-Review Score
-Common Complaints
-
-Conversion Dashboard
-Funnel
-Drop %
-Conversion Rate
-Stage Duration
-
-Project Roadmap
-Phase 1 – Project Setup
-We'll create the project structure.
-
-
-HospitalManagement/
-│
-├── app/
-│   │
-│   ├── main.py
-│   ├── config.py
-│   ├── database.py
-│
-│   ├── core/
-│   │   ├── security.py          # Password hashing, JWT utilities
-│   │   ├── auth.py              # Authentication helpers
-│   │   ├── dependencies.py      # Current user dependencies
-│   │   ├── permissions.py       # Role-based authorization
-│   │   └── constants.py
-│   │
-│   ├── models/
-│   │   ├── user.py
-│   │   ├── doctor.py
-│   │   ├── patient.py
-│   │   ├── staff.py
-│   │   ├── appointment.py
-│   │   └── refresh_token.py
-│   │
-│   ├── schemas/
-│   │   ├── auth.py
-│   │   ├── token.py
-│   │   ├── user.py
-│   │   ├── doctor.py
-│   │   ├── patient.py
-│   │   ├── staff.py
-│   │   └── appointment.py
-│   │
-│   ├── crud/
-│   │   ├── auth.py
-│   │   ├── user.py
-│   │   ├── doctor.py
-│   │   ├── patient.py
-│   │   ├── staff.py
-│   │   └── appointment.py
-│   │
-│   ├── routes/
-│   │   ├── auth.py
-│   │   ├── user.py
-│   │   ├── doctor.py
-│   │   ├── patient.py
-│   │   ├── staff.py
-│   │   └── appointment.py
-│   │
-│   ├── services/
-│   │   ├── auth_service.py
-│   │   ├── doctor_service.py
-│   │   ├── patient_service.py
-│   │   ├── staff_service.py
-│   │   └── appointment_service.py
-│   │
-│   ├── middleware/
-│   │   ├── logging.py
-│   │   ├── request_timer.py
-│   │   └── security_headers.py
-│   │
-│   ├── utils/
-│   │   ├── logger.py
-│   │   ├── validators.py
-│   │   └── helpers.py
-│   │
-│   ├── uploads/
-│   │
-│   ├── tests/
-│   │
-│   └── __init__.py
+## 📁 Project Structure
+SAYLANI PROJECT/
 │
 ├── alembic/
+│   ├── versions/
+│   ├── env.py
+│   └── script.py.mako
 │
-├── requirements.txt
-├── Dockerfile
-├── docker-compose.yml
+├── app/
+│   ├── auth/
+│   │   ├── init.py
+│   │   ├── jwt.py
+│   │   ├── hashing.py
+│   │   └── dependencies.py
+│   │
+│   ├── crud/
+│   │   ├── init.py
+│   │   ├── doctor.py
+│   │   ├── patient.py
+│   │   ├── staff.py
+│   │   └── user.py
+│   │
+│   ├── models/
+│   │   ├── init.py
+│   │   ├── doctor.py
+│   │   ├── patient.py
+│   │   ├── staff.py
+│   │   └── user.py
+│   │
+│   ├── routes/
+│   │   ├── init.py
+│   │   ├── auth.py
+│   │   ├── doctor.py
+│   │   ├── patient.py
+│   │   └── staff.py
+│   │
+│   ├── schemas/
+│   │   ├── init.py
+│   │   ├── doctor.py
+│   │   ├── patient.py
+│   │   ├── staff.py
+│   │   └── user.py
+│   │
+│   ├── config.py
+│   ├── database.py
+│   └── main.py
+│
+├── frontend/
+│   ├── index.html
+│   ├── dashboard.html
+│   ├── doctors.html
+│   ├── patients.html
+│   ├── staff.html
+│   │
+│   ├── css/
+│   │   └── style.css
+│   │
+│   └── js/
+│       ├── auth.js
+│       ├── doctors.js
+│       ├── patients.js
+│       └── staff.js
+│
+├── alembic.ini
 ├── .env
 ├── .env.example
 ├── .gitignore
+├── requirements.txt
 └── README.md
 
-Phase 2
-Install dependencies
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/hospital-management-system.git
+cd hospital-management-system
+```
+
+### 2. Create Virtual Environment
+```bash
+python -m venv venv
+venv\Scripts\activate        # Windows
+source venv/bin/activate     # Mac/Linux
+```
+
+### 3. Install Requirements
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Create `.env` File
+```env
+DB_USER=root
+DB_PASSWORD=yourpassword
+DB_HOST=localhost
+DB_PORT=3306
+DB_NAME=hospital_db
+SECRET_KEY=your_secret_key_here
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_DAYS=2
+```
+
+### 5. Create MySQL Database
+```sql
+CREATE DATABASE hospital_db;
+```
+
+### 6. Run Migrations
+```bash
+python -m alembic revision --autogenerate -m "Create Tables"
+python -m alembic upgrade head
+```
+
+### 7. Run the Server
+```bash
+uvicorn app.main:app --reload
+```
+
+### 8. Open Swagger UI
+http://localhost:8000/docs
+
+---
+
+## 🔐 Authentication
+
+- JWT Token based authentication
+- Tokens expire after **2 days**
+- Auto logout on frontend after token expiry
+- Role based access control
+
+### Roles
+| Role | Access |
+|---|---|
+| Admin | Full access to everything |
+| Doctor | Own data only |
+| Staff | Limited access |
+
+### Auth Endpoints
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/auth/register` | Register new user |
+| POST | `/auth/login` | Login and get token |
+| POST | `/auth/refresh` | Refresh token |
+
+---
+
+## 📋 API Endpoints
+
+### Doctor
+| Method | Endpoint | Description | Auth |
+|---|---|---|---|
+| GET | `/doctor/` | Get all doctors | ✅ Required |
+| POST | `/doctor/` | Add new doctor | ✅ Required |
+| GET | `/doctor/{id}` | Get doctor by ID | ✅ Required |
+| PUT | `/doctor/{id}` | Update doctor | ✅ Required |
+| DELETE | `/doctor/{id}` | Delete doctor | ✅ Required |
+
+### Patient
+| Method | Endpoint | Description | Auth |
+|---|---|---|---|
+| GET | `/patient/` | Get all patients | ✅ Required |
+| POST | `/patient/` | Add new patient | ✅ Required |
+| GET | `/patient/{id}` | Get patient by ID | ✅ Required |
+| PUT | `/patient/{id}` | Update patient | ✅ Required |
+| DELETE | `/patient/{id}` | Delete patient | ✅ Required |
+
+### Staff
+| Method | Endpoint | Description | Auth |
+|---|---|---|---|
+| GET | `/staff/` | Get all staff | ✅ Required |
+| POST | `/staff/` | Add new staff | ✅ Required |
+| GET | `/staff/{id}` | Get staff by ID | ✅ Required |
+| PUT | `/staff/{id}` | Update staff | ✅ Required |
+| DELETE | `/staff/{id}` | Delete staff | ✅ Required |
+
+---
+
+## 🖥️ Frontend Pages
+
+| Page | Description |
+|---|---|
+| `index.html` | Login page |
+| `dashboard.html` | Main dashboard |
+| `doctors.html` | Manage doctors |
+| `patients.html` | Manage patients |
+| `staff.html` | Manage staff |
+
+---
+
+## ✅ Features
+
+### Completed
+- [x] Project Structure
+- [x] MySQL Database Setup
+- [x] SQLAlchemy Models
+- [x] Pydantic Schemas
+- [x] CRUD Operations
+- [x] REST API Routes
+- [x] Alembic Migrations
+- [x] Swagger Documentation
+
+### In Progress
+- [ ] JWT Authentication
+- [ ] Role Based Access Control
+- [ ] Protected Routes
+- [ ] Frontend Login Page
+- [ ] Frontend Dashboard
+- [ ] Frontend Doctor/Patient/Staff Pages
+- [ ] Connect Frontend to Backend API
+- [ ] Auto Logout after 2 Days
+
+---
+
+## 🛠️ Requirements
+
 fastapi
 uvicorn
 sqlalchemy
 alembic
 pydantic
 pydantic-settings
-psycopg2-binary
+pymysql
 python-dotenv
-
-Phase 3
-Create PostgreSQL database
-hospital_db
-
-Phase 4
-Configure SQLAlchemy
-Create
-database.py
-
-Phase 5
-Create Models
-We'll create three tables
-Doctor
-DoctorID
-Name
-Specialization
-Email
-Phone
-Salary
-
-Patient
-PatientID
-Name
-Age
-Gender
-Disease
-DoctorID (Foreign Key)
-AdmissionDate
-
-Staff
-StaffID
-Name
-Role
-Shift
-Salary
-
-Phase 6
-Create Pydantic Schemas
-Every table will have
-DoctorCreate
-DoctorUpdate
-DoctorResponse
-Same for
-	Patient 
-	Staff 
-
-Phase 7
-CRUD Layer
-Functions like
-create_doctor()
-
-get_doctor()
-
-get_all_doctors()
-
-update_doctor()
-
-delete_doctor()
-Same for every table.
-
-Phase 8
-API Routes
-POST     /doctor
-
-GET      /doctor
-
-GET      /doctor/{id}
-
-PUT      /doctor/{id}
-
-DELETE   /doctor/{id}
-Same for
-Patients
-Staff
-
-Phase 9
-Alembic Migration
-alembic init alembic
-
-alembic revision --autogenerate -m "Create Tables"
-
-alembic upgrade head
-
-Phase 10
-Testing
-Swagger UI
-localhost:8000/docs
-
-Features We'll Add
-✔ SQLAlchemy ORM
-✔ Pydantic Validation
-✔ Alembic Migration
-✔ Dependency Injection
-✔ Clean Architecture
-✔ Separate Routes
-✔ CRUD Layer
-✔ Response Models
-✔ Error Handling
-✔ Foreign Keys
-✔ Relationships
-✔ Swagger Documentation
-✔ PostgreSQL
-
-	JWT Authentication (Admin, Doctor, Staff roles) 
-	Password hashing with passlib 
-	Role-based authorization 
-	Search, filtering, and pagination 
-	File upload (patient reports) 
-	Appointment management 
-	Prescription module 
-	Logging and middleware 
-	Unit testing with pytest 
-	Docker and Docker Compose 
-	CI/CD pipeline with GitHub Actions 
-
-
-Phase 11 — Authentication Setup
-Install authentication libraries
-Configure JWT
-Configure password hashing
-Configure OAuth2PasswordBearer
-Create authentication utilities
-
-Phase 12 — User Management
-
-Create User model
-
-User table
-Roles
-Active status
-Email
-Username
-Password Hash
-
-Relationships
-
-Doctor → User
-Staff → User
-Phase 13 — Registration & Login
-
-Implement
-
-Register
-Login
-Password Hashing
-Password Verification
-JWT Token Generation
-
-API Endpoints
-
-POST /auth/register
-
-POST /auth/login
-Phase 14 — Refresh Token Authentication
-
-Instead of only Access Tokens
-
-Implement
-
-Access Token
-Refresh Token
-Refresh Endpoint
-Logout
-
-Endpoints
-
-POST /auth/refresh
-
-POST /auth/logout
-Phase 15 — Role-Based Authorization (RBAC)
-
-Roles
-
-Admin
-Doctor
-Staff
-Patient
-
-Protect APIs using role-based dependencies.
-
-Phase 16 — Current User & Protected Routes
-
-Implement
-
-Get Current User
-Verify Token
-Verify Active User
-Secure CRUD APIs
-Phase 17 — Password Management
-
-Features
-
-Change Password
-Forgot Password
-Reset Password
-Password Validation
-Phase 18 — Search, Filtering & Pagination
-
-Add to all modules
-
-Search
-Filter
-Sort
-Pagination
-Phase 19 — File Upload
-
-Patient Reports
-
-Images
-PDFs
-Medical Files
-Phase 20 — Appointment Management
-
-Features
-
-Book Appointment
-Update Appointment
-Cancel Appointment
-Appointment Status
-Doctor Availability
-Phase 21 — Prescription Module
-
-Create
-
-Prescription
-Medicine
-Dosage
-Instructions
-
-Relationships
-
-Doctor → Patient → Prescription
-
-Phase 22 — Logging & Middleware
-
-Implement
-
-Request Logging
-Error Logging
-Execution Time
-Security Headers
-CORS Configuration
-Phase 23 — Global Exception Handling
-
-Create custom handlers for
-
-400
-401
-403
-404
-422
-500
-
-Return consistent API responses.
-
-Phase 24 — Testing
-
-Using pytest
-
-Test
-
-Authentication
-CRUD
-Protected Routes
-Role Permissions
-Database Operations
-Phase 25 — Docker & Deployment
-
-Create
-
-Dockerfile
-Docker Compose
-Environment Variables
-Production Configuration
-GitHub Actions CI/CD (optional enhancement)
+mako
+email-validator
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
