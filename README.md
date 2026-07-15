@@ -254,3 +254,16 @@ email-validator
 python-jose[cryptography]
 passlib[bcrypt]
 python-multipart
+
+---
+
+## 👨‍💻 Developer
+
+**Your Name**
+- GitHub: [@vishalsahilai](https://github.com/vishalsahilai)
+
+---
+
+## 📄 License
+
+This project is for educational purposes.
