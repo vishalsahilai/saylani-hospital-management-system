@@ -359,6 +359,7 @@ Configure JWT
 Configure password hashing
 Configure OAuth2PasswordBearer
 Create authentication utilities
+
 Phase 12 — User Management
 
 Create User model
